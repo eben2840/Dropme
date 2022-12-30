@@ -1,10 +1,17 @@
-{% extends 'layout.html' %}
+
+  {% extends 'layout.html' %}
 {% block body %}
 
+<nav class="navbar bg-success fixed-top">
+  <div class="container-fluid">
+    <h5 style=" color: #5454c9; padding:8px; color:#000;" ><b><a href="/userbase" style="text-decoration:none; color:#000;">dropme</a><b> </h5>
+      <h5 style=" color: #5454c9; padding:8px; color:#000; margin-right:10px;" > <a href="/addalumni" style="color:#000;"><img src="static/img/a.png" style="width:25px; margin-left:20px;"></a></h5>
+  </div>
+</nav>
+jsaldas
+<div class="container">
 
 
-<h4>Add a New Alumni</h4>
-<p class="text-muted" style="margin-bottom: 0;">Please fill in this form :</p>
 <br>
 <form action='' method="post" enctype="multipart/form-data">
   {{form.hidden_tag()}}
@@ -12,44 +19,51 @@
   <label for="image-picker">
     <div>
         {% if editCandidate %}
-        <img id="image-preview" style="height: 30vh; object-fit:contain" src={{candidate.testField}} alt="your image" />
+        <img id="image-preview" style="height: 30vh; width:320px; object-fit:contain" src={{candidate.testField}} alt="your image" />
         {% else %}
-        <img id="image-preview" style="height: 30vh; object-fit:contain" src="{{url_for('static', filename='img/ig.png')}}" alt="your image" />
+        <img id="image-preview" style="height: 30vh; object-fit:contain; width:320px;" src="{{url_for('static', filename='img/mee.png')}}" alt="your image" />
         {% endif %}
     </div>      
     <h6 id="error" style="color: red; display: none;">Please upload an image to continue</h6>
 </label>
-
+<h6 class="text-muted">Tap on the image above to add a dropme:</h6>
 <input style="display:none" id="image-picker" type="file" required="required" accept="image/*" />
 
+<div class="form-floating mb-3">
+  {{form.guardian(class="form-control",placeholder="INT/19/01/5837",id="floatingInput")}}
+  <label for="floatingInput" class="text-muted">Username</label>
+</div>
 
-  <div class="form-floating mb-3" >
-    {{form.fullname(class="form-control",placeholder="Assignment",id="floatingInput")}}
-    <label for="floatingInput" class="text-muted">Course</label>
-  </div>
-  
+<div class="form-floating mb-3" >
+  {{form.fullname(class="form-control",placeholder="Assignment",id="floatingInput")}}
+  <label for="floatingInput" class="text-muted">Comments</label>
+</div>
+
+
+<div class="form-floating mb-3">
+  {{form.work(class="form-control",placeholder="Days Left",id="floatingInput")}}
+  <label for="floatingInput" class="text-muted">Leave a Hashtag</label>
+</div>
+
+<div class="form-floating mb-3" >
+  {{form.image_file (class="form-control", id="firebaseLink" )}}
+ 
+</div>
+
+<button class="btn" style="color: #fff; margin-bottom:1000px; background: #631AAC;   border: none;" type="submit" id="submitButton">Add Drop</button>
+          
 
   <div class="form-floating mb-3">
     {{form.indexnumber(class="form-control",placeholder="Date Assigned",id="floatingInput" )}}
-    <label for="floatingInput" class="text-muted">Date Assigned</label>
+    <label for="floatingInput" class="text-muted">Comments</label>
   </div>
 
   <div class="form-floating mb-3">
     {{form.email(class="form-control",placeholder="INT/19/01/5837",id="floatingInput")}}
-    <label for="floatingInput" class="text-muted">Completion Date</label>
+    <label for="floatingInput" class="text-muted">Leave a Hashtag</label>
   </div>
 
 
-
-  <div class="form-floating mb-3">
-    {{form.work(class="form-control",placeholder="Days Left",id="floatingInput")}}
-    <label for="floatingInput" class="text-muted">Days Left</label>
-  </div>
-
-  <div class="form-floating mb-3">
-    {{form.guardian(class="form-control",placeholder="INT/19/01/5837",id="floatingInput")}}
-    <label for="floatingInput" class="text-muted">Lecturer</label>
-  </div>
 
 
   <div class="form-floating mb-3">
@@ -126,15 +140,11 @@
   </div>
 
   
-  <div class="form-floating mb-3" >
-    {{form.image_file (class="form-control", id="firebaseLink" )}}
-   
-  </div>
 
-  <button class="btn" style="color: #fff; background: #992621; border: none;" type="submit" id="submitButton">Register</button>
-              
+
+    
 </form>
-
+</div>
 <script>
 
 $("#image-picker").change(function (event) {

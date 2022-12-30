@@ -4,368 +4,62 @@
 {% extends 'userlayout.html' %}
 
 
-{% block div %}
-
-
-
-
-
-<div class="container" style=" border-radius:10px 0 0 150px; padding: 20px; margin-top:50px;">
-  <nav class="navbar bg-light fixed-top">
-    <div class="container-fluid">
-
-      <h5 style=" color: #5454c9;" ><b><a href="/useryeargroup" style="text-decoration:none;"><</a><b> </h5>
-      
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"  style="  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(84,84,201,1) 0%, rgba(0,212,255,1) 100%);">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hello, {{current_user.name}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="chatroomMask">
-          <article class="article" style="display: none;">
-            <div class="articleMask">
-              <div class="artPic">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/251342/profile/profile-80.jpg?" alt="">
-              </div><!-- 大頭照 -->
-              <div class="artText">
-                <h2>Lai Taiwan</h2>
-                <small>last task</small>
-              </div><!-- 相關名稱與文字敘述 -->
-              <div class="artStatus">
-                1 min ago
-              </div><!-- 狀態 -->
-            </div>
-          </article><!-- 左側項目 -->
-          <section class="chatroomInfomation" style="width: 100%;">
-            <h2 class="ci_title">
-                Chatroom Title
-            </h2><!-- 對話窗口名稱 -->
-            <div class="ci_detail" ref="messageBox">
-              <div class="cid_Text" ref="messageText">
-                <div :class="(row.master ? 'text-left' : 'text-right')"
-                     v-for="(row, keys) in chatData" :key="keys" v-text="row.content">
-                  test
-                </div><!-- 訊息 end -->
-              </div><!-- 訊息移動 -->
-            </div><!-- 訊息顯示處  -->    
-            <div class="ci_input">
-              <input type="text" 
-                     @keyup.enter="onSubmit" 
-                     v-model="mes"
-                     class="textInput" 
-                     placeholder="請從此輸入要說的話...">
-              <div class="cii_icon_input">
-                <input type="submit" @click.prevent="onSubmit" value="送出">
-              </div><!-- 文字輸入相關按鈕 -->
-            </div><!-- 訊息輸入框架 -->
-          </section><!-- 聊天框架 -->
-          
-        </div><!-- 整體框架 -->
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Assignment</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Course</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Attendance</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Course</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-         
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div class="row">
-    
-    
-   
-
   
-
-  
-    
-
-   
-    </div>
-    
-
-{% endblock div %}
-  -->
 {% block body %}
-
-
-<!--  
-  
-<div class="container">
-
-<h3 class="text-muted" style="margin-left:20px;">Hello,</h3> <h1  style="margin-left:20px;"> {{current_user.name}}</h1> 
-<div class="row" style="text-align: center; margin: auto;">
-  <div class="col-md-2 col-6" >
-    <div class="user-box" style="background-color:#ADD8E6;">
-      <a href="/userbase" style="text-decoration: none; background-color:#5454c9;">
-        
-          <h6 style="background-color:#e62626; width:60px; height:60px; margin:auto;  border-radius:100px; text-align:center;  color: #fff; align-content:center; "></h6>
-       
-      </a>
-        <h6 class="text-muted" style="margin-top:10px;"> Outline</h6> 
-    </div>
+<nav class="navbar bg-success fixed-top">
+  <div class="container-fluid">
+    <h5 style=" color: #5454c9; padding:8px; color:#000;" ><b>dropme<b> </h5>
+      <h5 style=" color: #5454c9; padding:8px; color:#000; margin-right:10px;" > <a href="/addalumni" style="color:#000;"><img src="static/img/a.png" style="width:25px; margin-left:20px;"></a></h5>
   </div>
-  
-  <div class="col-md-2 col-6">
-    <div class="user-box" style="background-color:#ADD8E6;">
-      <a href="/userbase" style="text-decoration: none; background-color:#5454c9;">
-        
-          <h6 style="background-color:#e62626; width:60px; height:60px; margin:auto;  border-radius:100px; text-align:center;  color: #fff; align-content:center; "></h6>
-       
-      </a>
-        <h6 class="text-muted" style="margin-top:10px;"> Outline</h6> 
+</nav>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success mb-3" role="alert">
+        {{ message }} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  </div>
-  
-  <div class="col-md-2 col-6">
-    <div class="user-box" style="background-color:#ADD8E6;">
-      <a href="/userbase" style="text-decoration: none; background-color:#5454c9;">
-        
-          <h6 style="background-color:#e62626; width:60px; height:60px; margin:auto;  border-radius:100px; text-align:center;  color: #fff; align-content:center; "></h6>
-       
-      </a>
-        <h6 class="text-muted" style="margin-top:10px;"> Outline</h6> 
-    </div>
-  </div>
-  
-  <div class="col-md-2 col-6">
-    <div class="user-box" style="background-color:#ADD8E6;">
-      <a href="/userbase" style="text-decoration: none; background-color:#5454c9;">
-        
-          <h6 style="background-color:#e62626; width:60px; height:60px; margin:auto;  border-radius:100px; text-align:center;  color: #fff; align-content:center; "></h6>
-       
-      </a>
-        <h6 class="text-muted" style="margin-top:10px;"> Outline</h6> 
-    </div>
-  
-</div>
-
-
-
-
-
-
-
-<div class="blog">
-
-  <div class="container">
-
-    <div class="blog-container has-scrollbar">
-
-      <div class="blog-card">
-
-        <a href="#">
-          <img src="https://media.istockphoto.com/photos/portrait-of-black-couple-with-shopping-bags-pointing-at-window-picture-id1370431940?b=1&k=20&m=1370431940&s=170667a&w=0&h=8K2lBabrD3wRTbUgQ-807ySGTp4tV8eZzmErvxhkxFU=" alt="Clothes Retail KPIs 2021 Guide for Clothes Executives" width="300" class="blog-banner">
-        </a>
-
-        <div class="blog-content">
-
-          <a href="#" class="blog-category">Fashion</a>
-
-          <a href="#">
-            <h3 class="blog-title">CentralMal has over 190+ reviews from students</h3>
-          </a>
-
-          <p class="blog-meta">
-            slide <cite>to</cite> <time datetime="2022-04-06">see more -><i class="fas fa-arrow-right"></i></time>
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="blog-card">
-      
-        <a href="#">
-          <img src="/static/images/blog-2.jpg" alt="Curbside fashion Trends: How to Win the Pickup Battle."
-            class="blog-banner" width="300">
-        </a>
-      
-        <div class="blog-content">
-      
-          <a href="#" class="blog-category">Clothes</a>
-      
-          <h3>
-            <a href="#" class="blog-title">CentralMal has that variety for you and that special someone. </a>
-          </h3>
-      
-          <p class="blog-meta">
-              slide <cite>to</cite> <time datetime="2022-04-06">see more -><i class="fas fa-arrow-right"></i></time>
-          </p>
-      
-        </div>
-      
-      </div>
-
-      <div class="blog-card">
-      
-        <a href="#">
-          <img src="/static/images/blog-3.jpg" alt="EBT vendors: Claim Your Share of SNAP Online Revenue."
-            class="blog-banner" width="300">
-        </a>
-      
-        <div class="blog-content">
-      
-          <a href="#" class="blog-category">Shoes</a>
-      
-          <h3>
-            <a href="#" class="blog-title">Well, look no further. CentralMal has got you covered.</a>
-          </h3>
-      
-          <p class="blog-meta">
-              slide <cite>to</cite> <time datetime="2022-04-06">see more -><i class="fas fa-arrow-right"></i></time>
-          </p>
-      
-        </div>
-      
-      </div>
-
-      <div class="blog-card">
-      
-        <a href="#">
-          <img src="/static/images/blog-4.jpg" alt="Curbside fashion Trends: How to Win the Pickup Battle."
-            class="blog-banner" width="300">
-        </a>
-      
-        <div class="blog-content">
-      
-          <a href="#" class="blog-category">Electronics</a>
-      
-          <h3>
-            <a href="#" class="blog-title">We serve students the best of appliances, from top wholesalers</a>
-          </h3>
-      
-          <p class="blog-meta">
-              slide <cite>to</cite> <time datetime="2022-04-06">see more -><i class="fas fa-arrow-right"></i></time>
-          </p>
-      
-        </div>
-      
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-</div>
-
-
-
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row " style="text-align: center; " >
-  
-    <div class="user-box" style="background-color:#00008B; ">
     
-    <div class="ade" style="display: flex; justify-content: space-between;">
-      
+    {% endfor %}
+{% endif %}
+{% endwith %}
 
-         <a href="" style="text-decoration: none; color: #fff;text-align:left; margin-top:60px; margin-right:20px;">
-          <h5>Hello, <b style="background-color:#FFCCCB; color:#00008B; padding:5px; font-size:13px; margin:3px; text-align:center; border-radius:3px;">{{current_user.name}}</b></h5> 
-          <h3><b>Check your</h3>          <h3><b>Assignments<br> <b></h3>
-            
-              <h6 style="background-color:#FFCCCB; color:#00008B; padding:5px; font-size:13px; margin:3px; text-align:center; border-radius:3px;">for Today  </h6>
-            
-         
-        </a>
 
-        <img src="static/img/memoji.png" alt=""style="width:190px; height:180px;"  >
-        
-     
+<div class="container" style="+border-radius:10px 0 0 150px; padding: 10px; margin-top:70px; ">
+  {%for user in users%} 
+<div class="ade" style="  padding:20px;  margin-bottom:20px; ">
+    <div class="ade"style="display: flex;  ">
+      <img src="static/img/test.png" style="width:40px; height:40px; margin-bottom:5px;">
+      <h6 style="color:#000; text-align:left; margin-left:6px; margin-top:5px;"><b>{{user.guardian}} <img src="static/img/check.png" style="width:10px;"></b> <br>#{{user.work}}. 2h</h6>
     </div>
-    </div>
-
-</div>
-
-
-
-
-
-<div class="row" >
   
-  <div class="user-bo" style="background-color:#; ">
-    {%for user in users%} 
-    <div style="background-color:#; padding:10px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
-    <a href="{{url_for("userinformation", userid=user.id)}}" style="text-decoration: none; color: #992621; ">
+<div class="ade"style=" background-color: #b2becc; background-color: #fff; border-radius:10px;"> 
+  <a href="" style="text-decoration: none;  text-align:center; color: #fff;">
+    <img src="{{user.image_file}} "  alt=""style="width:320px; object-fit:cover;  border-radius:10px; height:350px;;"  > 
+  </a>
+  
 
-      <h5 class="names" style="font-size:20px; color:#1E90FF; padding:10px;"><b> {{user.fullname}}</h5><!--<a href="/delete/{{user.id}}"class="btn"><i class="fa fa-trash" aria-hidden="true">delete</i>  </i></a></b>-->
-      
-      <div class="ade" style="display: flex;  margin-bottom:20px;">
-        <a href="" style="text-decoration: none; color: #992621; ">
-          <h6  class="text-muted" style="background-color:#ADD8E6; padding:3px; font-size:13px; margin:3px; border-radius:3px;" >{{user.indexnumber}}</h6>
-        </a>
-
-        <a href="" style="text-decoration: none; color: #992621;">
-          <h6  class="text-muted" style="background-color:#FFCCCB;  padding:3px; font-size:13px; margin:3px; border-radius:3px;">{{user.email}}</h6>
-        </a>
-      </div>
-
-      <div class="ade" style="display: flex; justify-content: space-between; margin-bottom:2px;">
-        <p class="text-muted">{{user.guardian}}</p>
-        <a href="" style="text-decoration: none; color: #992621;">
-          <h6  class="text-muted"style=" padding:2px; font-size:9px;" >{{user.work}} Days left</h6>
-        </a>
-      </div>
-
-    </a>
+  <div class="ade"style="display: flex; justify-content: space-between;margin-top:10px;  "> 
+      <a href="" style="text-decoration: none;  text-align:center; color: #000;">
+      <h6>0 likes  <ion-icon name="heart-outline"></h6>
+      </a>
+      <h6>0 comment</h6>
   </div>
-    {% endfor %} 
-  </div>
-
+  
+    <h6 style="color:#000; text-align:left; margin-left:10px; margin-top:10px; margin-bottom:20px; "><b>{{user.guardian}}</b>  {{user.fullname}}...</h6>
 </div>
 
+  <h6 class="text-muted" style="color: #000; text-align:left;">Discover dropmes near you</h6>
+  <h6  style="color: #000; background-color:rgb(72, 239, 164); text-align:center; margin:auto; padding:10px; width:300px; border-radius:30px;">See other dropmes</h6>
+  
+</div>
+</div>
 
+{% endfor %}
+</div>
 
-
-
+</div>
 
 
 
@@ -379,4 +73,3 @@
 
 
 
-x

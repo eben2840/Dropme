@@ -15,7 +15,7 @@
   <body>
 
    
-<div class="container" style=" border-radius: 0 0 150px 0; padding: 20px; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(84,84,201,1) 0%, rgba(0,212,255,1) 100%);">
+<div class="container" style=" border-radius: 0 0 150px 0; padding: 20px;">
  
   <div class="row">
    
@@ -32,26 +32,7 @@
     {% endif %}
 {% endwith %}
     
-  
 
-    <div class="ade" style="display: flex; justify-content: space-between;">
-         <img src="static/img/q.png" alt=""style="width:190px; height:180px;"  >
-        
-     
-         <a href="" style="text-decoration: none; color: #fff; margin-top:60px; margin-right:20px;">
-          <h3><b>Login to <br> Experience more<b></h3>
-          <h6>Best Experience.</h6>
-        </a>
-    </div>
-    </div>
-    
-
-   
-    </div>
-    </div>
-    
-
-  </div>
   <br>
 
 
@@ -60,16 +41,18 @@
 
 
 
-<div class="container" style=" border-radius: 5px;  background: white; height: 100vh;">
+<div class="container" style=" border-radius: 5px;  background: white; ">
   
     <div >
       <form action=" " class="form" method="POST"> 
           {{form.hidden_tag()}}
           
           <div style="text-align: center;">
+            <img src="static/img/test.png" style="width:90%; height:90%; margin-bottom:5px;">
             <h2> LOGIN</h2>
             
-      <div style="margin-top: 5vh;">
+      <div style="margin-top: 2
+      vh;">
           <div class="form-floating mb-3" >
             {{form.email(class="form-control")}}
               <label for="floatingInput" class="text-muted">Email</label>
@@ -82,14 +65,14 @@
       </div>
 
       <div style="margin-top: 2vh;">
-        <h6>Are you a Class Rep? <a href="/login" style="text-decoration: none;">LOGIN</a></h6>
+        <!--<h6>Are you a Class Rep? <a href="/login" style="text-decoration: none;">LOGIN</a></h6>-->
           <h6>Don't have an account? <a href="/usersignup" style="text-decoration: none;">SIGN UP</a></h6>
           
       </div>
 
 
       <div style="margin-top: 5vh;">
-        {{form.submit(class="btn btn-lg", style="width: 90%; background:  #00008B;  color: #fff; padding: 12px 20px; font-weight: 300; border: none; border-radius: 10px; font-weight: bold;") }} 
+        {{form.submit(class="btn btn-lg", style="width: 90%; background:  #631AAC;  color: #fff; padding: 12px 20px; font-weight: 300; border: none; border-radius: 10px; font-weight: bold;") }} 
               
         </a>
       </div>

@@ -4,11 +4,11 @@
 
 <nav class="navbar bg-success fixed-top">
   <div class="container-fluid">
-    <h5 style=" color: #5454c9; padding:8px; color:#000;" ><b><a href="/userbase" style="text-decoration:none; color:#000;">dropme</a><b> </h5>
-      <h5 style=" color: #5454c9; padding:8px; color:#000; margin-right:10px;" > <a href="/addalumni" style="color:#000;"><img src="static/img/a.png" style="width:25px; margin-left:20px;"></a></h5>
+    <h5 style=" color: #5454c9; padding:8px; color:#000;" ><b><a href="/userbase"><img src="static/img/left.png"  alt=""style="width:20px; margin-left:5px; height:20px;"  ><b> </a></h5>
+      <h5 style=" color: #5454c9; padding:8px; color:#000; margin-right:10px;" > <a href="/addalumni" style="color:#000;"><img src="static/img/app.png" style="width:25px; margin-left:20px;"><img src="static/img/pp.png"  alt=""style="width:25px; margin-left:20px; height:25px;"  ></a></h5>
   </div>
 </nav>
-jsaldas
+
 <div class="container">
 
 
@@ -45,10 +45,6 @@ jsaldas
   <label for="floatingInput" class="text-muted">Leave a Hashtag</label>
 </div>
 
-<div class="form-floating mb-3" >
-  {{form.image_file (class="form-control", id="firebaseLink" )}}
- 
-</div>
 
 <button class="btn" style="color: #fff; margin-bottom:1000px; background: #631AAC;   border: none;" type="submit" id="submitButton">Add Drop</button>
           
@@ -58,6 +54,11 @@ jsaldas
     <label for="floatingInput" class="text-muted">Comments</label>
   </div>
 
+  <div class="form-floating mb-3" >
+    {{form.image_file (class="form-control", id="firebaseLink" )}}
+   
+  </div>
+  
   <div class="form-floating mb-3">
     {{form.email(class="form-control",placeholder="INT/19/01/5837",id="floatingInput")}}
     <label for="floatingInput" class="text-muted">Leave a Hashtag</label>

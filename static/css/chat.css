@@ -1,0 +1,330 @@
+:root {
+	--clr-primary-300: hsl(276, 100%, 81%);
+	--clr-primary-400: hsl(276, 55%, 52%);
+
+	--clr-neutral-100: hsl(0, 0%, 100%);
+	--clr-neutral-200: hsl(0, 0%, 95%);
+	--clr-neutral-400: hsl(270, 7%, 64%);
+	--clr-neutral-500: hsl(271, 15%, 43%);
+	--clr-neutral-600: hsl(271, 36%, 24%);
+
+	/* the design specs list these as secondary  */
+	--clr-secondary-300: hsl(206, 6%, 79%);
+	--clr-secondary-350: hsl(270, 20%, 96%);
+	--clr-secondary-400: hsl(270, 19%, 89%);
+	--clr-secondary-500: hsl(271, 36%, 24%);
+	--clr-secondary-600: hsl(289, 100%, 72%);
+
+	--fs-300: 0.75rem;
+	--fs-400: 1rem;
+	--fs-600: 1.5rem;
+	--fs-700: 2rem;
+	--fs-800: 2.5rem;
+
+	--bbl-radius: 17px 17px 17px 17px;
+}
+
+body {
+	font-family: 'Rubik', sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+p {
+	margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	padding: 4rem;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+button {
+	display: block;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.flow > * + * {
+	margin-top: 1rem;
+}
+
+.row > * + * {
+	margin-left: 1rem;
+}
+
+.space-evenly {
+	justify-content: space-between;
+}
+
+.bg-gradient {
+	--gradient: linear-gradient(
+		var(--gradient-angle, 45deg),
+		hsl(293, 100%, 63%),
+		hsl(264, 100%, 61%)
+	);
+}
+
+.phone {
+	width: 25rem;
+	margin: 0 auto;
+	position: relative;
+	background: var(--clr-secondary-350);
+	border: 0.75rem solid var(--clr-neutral-100);
+	border-radius: 2.5rem;
+	box-shadow: 1px 4px 50px -5px var(--clr-secondary-300);
+}
+
+.phone-header {
+	display: flex;
+	align-items: center;
+	position: relative;
+	--gradient-angle: 270deg;
+	padding: 2.75rem 1rem 1rem;
+	background: var(--gradient);
+	border-radius: 28px 28px 5px 5px;
+}
+
+.back {
+	height: 1.5rem;
+	cursor: pointer;
+}
+
+.profile-picture {
+	width: 3rem;
+	height: 3em;
+	border: 2px solid var(--clr-neutral-100);
+	border-radius: 50%;
+}
+
+.profile {
+	flex-grow: 1;
+}
+.user-name {
+	font-weight: 500;
+	font-size: var(--fs-600);
+	color: var(--clr-neutral-100);
+	line-height: 1;
+}
+
+.user-status {
+	font-weight: 400;
+	font-size: var(--fs-300);
+	color: var(--clr-neutral-100);
+}
+
+.more {
+	font-weight: 500;
+	font-size: var(--fs-600);
+	color: white;
+	cursor: pointer;
+}
+
+.notch {
+	position: absolute;
+	width: 55%;
+	height: 1.75rem;
+	z-index: 200;
+	border-radius: 0 0 20px 20px;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	margin: 0 auto;
+	background: var(--clr-neutral-100);
+}
+
+.phone-chat {
+	display: flex;
+	flex-direction: column;
+	margin-top: 0.5rem;
+	font-size: var(--fs-400);
+	padding: 1rem;
+}
+
+.chat-message {
+	display: inline-block;
+	max-width: 70%;
+	padding: 0.5rem 0.75rem;
+	border-radius: var(--bbl-radius);
+}
+
+.you {
+	border-bottom-left-radius: 8px;
+	color: var(--clr-primary-400);
+	background: var(--clr-secondary-400);
+}
+
+.me {
+	border-bottom-right-radius: 8px;
+	color: var(--clr-neutral-500);
+	background: var(--clr-neutral-100);
+	align-self: flex-end;
+}
+
+.send {
+	display: flex;
+	align-items: center;
+	max-width: 100%;
+	background: var(--clr-neutral-100);
+	padding-right: 6px;
+	border-radius: 5000px;
+}
+
+.chat-pix {
+	display: flex;
+	justify-content: flex-end;
+	max-width: 80%;
+	background: none;
+}
+
+.chat-pix img {
+	height: 4.5rem;
+	border-radius: var(--bbl-radius);
+}
+
+.chat-message.bg-gradient {
+	display: flex;
+	align-items: center;
+	--gradient-angle: 90deg;
+	padding: 0.4rem 1.25rem;
+	background: var(--gradient);
+	font-size: var(--fs-300);
+	color: rgb(234, 227, 227);
+}
+
+.price {
+	font-size: var(--fs-600);
+	font-weight: 700;
+}
+
+input[type='radio'] {
+	margin-left: 0;
+	opacity: 0;
+}
+
+.chat-message.bg-gradient span {
+	position: relative;
+}
+
+.radio::before {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	width: 1.25em;
+	height: 1.25em;
+	left: -0.25em;
+	top: 50%;
+	transform: translate(0, -50%);
+	border: var(--clr-secondary-400) solid 2px;
+	border-radius: 50%;
+	background-color: transparent;
+	opacity: 0.5;
+	z-index: 200;
+	transition: background-color 400ms, opacity 400ms;
+}
+
+.radio:hover::before,
+input[type='radio']:focus + .radio::before {
+	background-color: var(--clr-neutral-100);
+	opacity: 0.75;
+	transition: background-color 200ms, opacity 200ms;
+}
+
+input[type='radio']:checked + .radio::before {
+	background-color: var(--clr-neutral-100);
+	opacity: 1;
+}
+
+.message {
+	flex-grow: 1;
+	max-width: none;
+	padding: 1rem 1.5rem;
+	font-size: var(--fs-400);
+	color: var(--clr-neutral-600);
+	background: var(--clr-neutral-100);
+	border: none;
+	border-radius: 5000px;
+	cursor: pointer;
+	transition: box-shadow 200ms;
+}
+
+.message::placeholder {
+	color: var(--clr-neutral-500);
+}
+
+.message:focus {
+	outline: none;
+	box-shadow: 0 0 5px 1px inset var(--clr-neutral-400);
+	-webkit-box-shadow: 0 0 5px 1px var(--clr-neutral-400);
+}
+button[type='submit'] {
+	height: 2.5rem;
+	width: 2.5rem;
+	padding: 0.5rem;
+	background-color: var(--clr-secondary-500);
+	border: 2px solid var(--clr-secondary-500);
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: background-color 100ms;
+}
+
+button[type='submit'] img {
+	height: 100%;
+	width: 100%;
+}
+
+button[type='submit']:hover,
+button[type='submit']:focus {
+	background-color: var(--clr-primary-400);
+	outline: none;
+}

@@ -200,6 +200,10 @@ def dashboard():
 def getstudent():
     return render_template('getstudent.html')
 
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
 
 
 @app.route('/addalumni', methods=['GET', 'POST'])
@@ -333,24 +337,11 @@ def userprofile():
  
 
 
-@app.context_processor
-def base():
-    form=Search()
-    return dict(form=form)
 
 
-@app.route('/search', methods=[ 'POST'])
-def search():
-    form= Search()
-    if request.method == 'POST': 
-        posts =User.query
-        if form.validate_on_submit():
-            postsearched=form.searched.data
-            posts =posts.filter(User.fullname.like('%'+ postsearched + '%') )
-            posts =posts.order_by(User.indexnumber).all() 
-            flash("You searched for "+ postsearched, "success")  
-            print(posts)   
-    return render_template("search.html", form=form, searched =postsearched, posts=posts)
+@app.route('/chats', methods=[ 'POST'])
+def chats():  
+    return render_template("search.html")
 
 
 

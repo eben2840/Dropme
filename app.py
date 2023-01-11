@@ -549,7 +549,7 @@ def update(id):
                    hall=form.hall.data,  
                    nationality=form.nationality.data,  
                    address=form.address.data,  
-                   work=form.work.data,  
+                   work=form.work.data,   
                    guardian=form.guardian.data,  
                   marital=form.marital.data,
                   extra=form.extra.data,    
